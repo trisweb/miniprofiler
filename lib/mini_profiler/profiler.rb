@@ -376,7 +376,7 @@ module Rack
       position = @config.position
       showTrivial = false
       showChildren = false
-      maxTracesToShow = 10
+      maxTracesToShow = @config.max_traces_to_show
       showControls = false
       currentId = current.page_struct["Id"]
       authorized = true

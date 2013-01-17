@@ -13,7 +13,7 @@ module Rack
     end
 
     attr_accessor :auto_inject, :base_url_path, :pre_authorize_cb, :position,
-        :backtrace_remove, :backtrace_filter, :skip_schema_queries, 
+        :backtrace_remove, :backtrace_filter, :skip_schema_queries, :max_traces_to_show,
         :storage, :user_provider, :storage_instance, :storage_options, :skip_paths, :authorization_mode, :use_existing_jquery
       
       def self.default
@@ -31,6 +31,7 @@ module Rack
           @user_provider = Proc.new{|env| Rack::Request.new(env).ip}
           @authorization_mode = :allow_all
           @use_existing_jquery = false
+          @max_traces_to_show = 10
           self
         }
       end
